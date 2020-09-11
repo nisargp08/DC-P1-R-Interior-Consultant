@@ -7,9 +7,30 @@
                     <p class="font-crimsonPro text-sm uppercase font-thin leading-4">this interior</p>
                 </div>
                 <div>
+                  <button @click="toggle" class="trasition duration-300 ease-in-out hover:text-red-600 focus:outline-none">
                     <svg class="h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
+                  </button>
+                </div>
+                <div v-show="isOpen" class="fixed inset-0 z-10 bg-primary text-white">
+                  <div class="flex flex-col h-full">
+                    <div class="self-end">
+                      <button @click="toggle" class="p-2 trasition duration-300 ease-in-out hover:text-red-600 focus:outline-none">
+                        <svg class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <nav class="flex items-center justify-center flex-1 text-center">
+                        <ul>
+                          <li class="font-montserrat font-bold text-lg leading-6 cursor-pointer">Home</li>
+                          <li class="font-montserrat mt-8 text-lg leading-6 cursor-pointer trasition duration-300 ease-in-out hover:text-red-600">Collection</li>
+                          <li class="font-montserrat mt-8 text-lg leading-6 cursor-pointer trasition duration-300 ease-in-out hover:text-red-600">About</li>
+                          <li class="font-montserrat mt-8 text-lg leading-6 cursor-pointer trasition duration-300 ease-in-out hover:text-red-600">Contact</li>
+                        </ul>
+                    </nav>
+                  </div>
                 </div>
             </div>
         </header>
@@ -35,8 +56,8 @@
                 <div>
                     <img class="rounded-lg" src="@/assets/images/photo1.png" alt="Designed Home">
                 </div>
-                <div class="relative pl-12 pr-4 -mt-12">
-                    <div class="flex flex-col rounded-lg bg-primary p-2 shadow-3xl">
+                <div class="pl-12 pr-4 -mt-12">
+                    <div class="relative flex flex-col rounded-lg bg-primary p-2 shadow-3xl">
                         <div class="flex">
                             <div class="flex items-center justify-center w-12 h-12">
                                 <img class="w-8 rounded-full" src="@/assets/images/photo2.png" alt="Interior Designer">
@@ -67,7 +88,19 @@
 <script>
 export default {
     name: 'App',
-    components: {}
+    data(){
+      return {
+        //Navigation bar open/close tracker
+        isOpen : false,
+      }
+    },
+    methods : {
+      toggle(){
+        //Toggle display state
+        this.isOpen = !this.isOpen;
+      }
+    },
+    components: {},
 }
 </script>
 
