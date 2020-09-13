@@ -77,7 +77,7 @@
                   </div>
               </div>
           </main>
-          <footer>
+          <footer class="lg:mt-32">
               <div class="flex items-center justify-center">
                 <div class="border-t border-tertiary">
                   <p class="font-montserrat text-tertiary pt-3 pb-6 font-semibold leading-4 text-sm">Nisarg Patel @ DevChallenges.io</p>
